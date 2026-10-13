@@ -48,6 +48,28 @@
     io.observe(el);
   });
 
+  // Compteurs animés (stats hero)
+  const counters = document.querySelectorAll('.counter');
+  if (counters.length) {
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        cio.unobserve(el);
+        const target = parseInt(el.dataset.target || '0', 10);
+        const dur = 1200;
+        const t0 = performance.now();
+        const tick = (t) => {
+          const p = Math.min((t - t0) / dur, 1);
+          el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach((c) => cio.observe(c));
+  }
+
   // Copier email
   const copyBtn = document.getElementById('copyEmail');
   if (copyBtn) {
@@ -55,11 +77,11 @@
       const email = 'modounianemodou@gmail.com';
       try {
         await navigator.clipboard.writeText(email);
-        copyBtn.textContent = '✅ Email copié !';
+        copyBtn.textContent = 'Email copié !';
       } catch {
         copyBtn.textContent = '✉ ' + email;
       }
-      setTimeout(() => { copyBtn.textContent = '📋 Copier l\'email'; }, 2000);
+      setTimeout(() => { copyBtn.textContent = 'Copier l\'email'; }, 2000);
     });
   }
 

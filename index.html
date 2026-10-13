@@ -3,26 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modou Niane — Développeur Frontend Junior | Portfolio</title>
-    <meta name="description" content="Portfolio de Modou Niane, Développeur Frontend Junior à Thiès (Remote). React, JavaScript, HTML/CSS, API REST. 4 projets déployés. Téléchargez mon CV.">
+    <title>Modou Niane — Développeur Frontend | Portfolio</title>
+    <meta name="description" content="Portfolio de Modou Niane, Développeur Frontend à Thiès (Remote). React, JavaScript, HTML/CSS responsive, API REST. 4 projets déployés. Téléchargez mon CV.">
     <link rel="icon" href="images/me.jpg">
+    <meta property="og:title" content="Modou Niane — Développeur Frontend">
+    <meta property="og:description" content="React • JavaScript • API REST • 4 projets déployés. Basé à Thiès, disponible remote.">
     <meta property="og:image" content="images/me.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="nav" id="top">
         <div class="container nav-inner">
-            <a href="#accueil" class="logo">MN<span>.</span></a>
+            <a href="#accueil" class="logo" aria-label="Retour en haut">Modou Niane<span class="logo-dot">.</span></a>
             <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
                 <a href="#accueil">Accueil</a>
                 <a href="#apropos">À propos</a>
+                <a href="#services">Services</a>
                 <a href="#projets">Projets</a>
                 <a href="#competences">Compétences</a>
                 <a href="#parcours">Parcours</a>
                 <a href="#contact">Contact</a>
             </nav>
             <div class="nav-actions">
-                <a href="#cv" class="btn btn-primary btn-sm">⬇ Télécharger CV</a>
+                <a href="#cv" class="btn btn-gold btn-sm">Télécharger CV</a>
                 <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
@@ -34,96 +40,136 @@
         <!-- HERO -->
         <section id="accueil" class="hero">
             <div class="container hero-grid">
-                <div>
-                    <p class="badge">📍 Thiès / Remote — Disponible stage / junior</p>
-                    <h1>Salut, moi c'est <span class="accent">Modou Niane</span><br>Développeur Frontend Junior.</h1>
-                    <p class="lead">Spécialisé React, JavaScript, HTML/CSS responsive, intégration API REST, Git/GitHub et déploiement Vercel. 4 projets déployés, 5+ clients livrés.</p>
+                <div class="hero-text">
+                    <p class="status-pill"><span class="pulse"></span>Disponible — stage / poste junior / freelance</p>
+                    <h1>Modou Niane,<br><span class="gradient-text">Développeur Frontend</span></h1>
+                    <p class="lead">Je conçois des interfaces web rapides, accessibles et responsives avec <strong>React</strong>, <strong>JavaScript</strong> et des <strong>API REST</strong>. Basé à Thiès, je travaille avec des clients et équipes à distance.</p>
                     <div class="hero-cta">
-                        <a href="#projets" class="btn btn-primary">Voir mes projets</a>
-                        <a href="cv-fr.html" download="CV-Modou-Niane-FR.html" class="btn btn-ghost">⬇ Télécharger mon CV</a>
+                        <a href="#projets" class="btn btn-primary">Voir mes projets <span aria-hidden="true">→</span></a>
+                        <a href="#contact" class="btn btn-outline">Me contacter</a>
                     </div>
-                    <div class="hero-social">
-                        <a href="https://github.com/modounianeCode" target="_blank" rel="noopener">GitHub</a>
-                        <a href="https://www.linkedin.com/in/modou-niane" target="_blank" rel="noopener">LinkedIn</a>
-                        <a href="mailto:modounianemodou@gmail.com">Email</a>
-                        <a href="tel:+221762388313">+221 76 238 83 13</a>
+                    <div class="hero-proof">
+                        <a href="https://github.com/modounianeCode" target="_blank" rel="noopener">GitHub ↗</a>
+                        <a href="https://www.linkedin.com/in/modou-niane" target="_blank" rel="noopener">LinkedIn ↗</a>
+                        <a href="mailto:modounianemodou@gmail.com">modounianemodou@gmail.com</a>
                     </div>
                 </div>
-                <div class="hero-card">
-                    <img class="avatar-photo" src="images/me.jpg" alt="Photo de Modou Niane" loading="lazy">
-                    <h2>Modou Niane</h2>
-                    <p>Frontend • React • Vercel</p>
+                <aside class="hero-card" aria-label="Carte de présentation">
+                    <div class="photo-frame">
+                        <img src="images/me.jpg" alt="Portrait professionnel de Modou Niane" loading="eager" fetchpriority="high">
+                    </div>
+                    <p class="hero-name">Modou Niane</p>
+                    <p class="hero-role">Frontend · React · Vercel</p>
                     <div class="stats">
-                        <div><strong>4</strong><span>projets déployés</span></div>
-                        <div><strong>5+</strong><span>clients livrés</span></div>
-                        <div><strong>50</strong><span>utilisateurs testeurs</span></div>
+                        <div><strong><span class="counter" data-target="4">0</span></strong><span>projets déployés</span></div>
+                        <div><strong><span class="counter" data-target="5">0</span>+</strong><span>clients livrés</span></div>
+                        <div><strong><span class="counter" data-target="50">0</span></strong><span>utilisateurs testeurs</span></div>
                     </div>
-                    <a href="#cv" class="btn btn-primary btn-block">📄 Mon CV en 1 clic</a>
-                    <p class="hint">FR + EN • Voir, imprimer / PDF, télécharger</p>
-                </div>
+                    <a href="#cv" class="btn btn-gold btn-block">Télécharger mon CV</a>
+                </aside>
             </div>
         </section>
 
         <!-- A PROPOS -->
         <section id="apropos" class="section">
             <div class="container">
-                <p class="kicker">À propos</p>
-                <h2>Je construis des interfaces rapides, propres et responsives.</h2>
+                <p class="kicker">01 — À propos</p>
+                <h2>Un profil orienté produit, pas seulement code.</h2>
                 <div class="about-grid">
-                    <img class="about-photo" src="images/me.jpg" alt="Portrait de Modou Niane" loading="lazy">
-                    <div class="two-col">
-                    <p>Développeur Frontend Junior à Thiès (Remote). J'intègre des maquettes en HTML/CSS/JS et React, je connecte des API REST, je gère Git/GitHub et je déploie sur Vercel avec SEO de base et optimisation images. Mon cycle : besoin → design → code → livraison dans les délais.</p>
-                    <ul class="check-list">
-                        <li>✅ 5+ sites responsives pour clients locaux</li>
-                        <li>✅ 10+ pages + API REST pour Rizq Academy</li>
-                        <li>✅ -40% de retours visuels après correction de 20+ bugs UI</li>
-                        <li>✅ Licence Informatique en cours — Univ. Iba Der Thiam de Thiès</li>
-                    </ul>
+                    <div class="about-photo-wrap">
+                        <img class="about-photo" src="images/me.jpg" alt="Portrait de Modou Niane" loading="lazy">
+                        <div class="about-badge">Thiès / Remote</div>
+                    </div>
+                    <div>
+                        <p class="about-text">Développeur Frontend à Thiès, disponible à distance. J'intègre des maquettes en HTML/CSS/JavaScript et React, je connecte des API REST, je gère le versioning Git/GitHub et je déploie sur Vercel avec SEO de base et optimisation des images. Ma méthode : comprendre le besoin, livrer vite, itérer.</p>
+                        <ul class="check-list">
+                            <li><span class="check">✓</span> 5+ sites responsives livrés pour des clients locaux</li>
+                            <li><span class="check">✓</span> 10+ pages + API REST pour Rizq Academy (50 utilisateurs testeurs)</li>
+                            <li><span class="check">✓</span> 20+ bugs UI corrigés — 40&nbsp;% de retours visuels en moins</li>
+                            <li><span class="check">✓</span> Licence Informatique en cours — Univ. Iba Der Thiam de Thiès</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PROJETS -->
-        <section id="projets" class="section section-alt">
+        <!-- SERVICES -->
+        <section id="services" class="section section-alt">
             <div class="container">
-                <p class="kicker">Projets</p>
-                <h2>4 projets déployés et vérifiables.</h2>
+                <p class="kicker">02 — Services</p>
+                <h2>Ce que je peux faire pour vous.</h2>
+                <div class="grid-3">
+                    <article class="card service">
+                        <div class="service-icon">◧</div>
+                        <h3>Sites responsives</h3>
+                        <p>Intégration HTML/CSS/JavaScript fidèle aux maquettes, mobile-first, compatible tous navigateurs.</p>
+                    </article>
+                    <article class="card service">
+                        <div class="service-icon">⚛</div>
+                        <h3>Apps React + API</h3>
+                        <p>Interfaces dynamiques en React, connexion API REST, authentification, tableaux de bord.</p>
+                    </article>
+                    <article class="card service">
+                        <div class="service-icon">▲</div>
+                        <h3>Déploiement & SEO</h3>
+                        <p>Mise en ligne sur Vercel, optimisation images, SEO de base, suivi et corrections.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJETS -->
+        <section id="projets" class="section">
+            <div class="container">
+                <p class="kicker">03 — Projets</p>
+                <h2>Réalisations déployées et vérifiables.</h2>
                 <div class="grid-projects">
-                    <article class="card">
-                        <h3>Elite Streetwear PC221</h3>
-                        <p>E-commerce : catalogue, panier, parcours commande.</p>
-                        <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Vercel</span></div>
-                        <div class="card-links">
-                            <a href="https://elitestreetwearpc221.vercel.app/" target="_blank" rel="noopener">🔗 Démo</a>
-                            <a href="https://github.com/modounianeCode/elitestreetwear-pc221" target="_blank" rel="noopener">💻 Code</a>
+                    <article class="card project">
+                        <div class="project-cover cover-1" aria-hidden="true">ES</div>
+                        <div class="project-body">
+                            <h3>Elite Streetwear PC221</h3>
+                            <p>E-commerce complet : catalogue, panier, parcours de commande.</p>
+                            <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Vercel</span></div>
+                            <div class="card-links">
+                                <a href="https://elitestreetwearpc221.vercel.app/" target="_blank" rel="noopener">Démo live ↗</a>
+                                <a href="https://github.com/modounianeCode/elitestreetwear-pc221" target="_blank" rel="noopener">Code source ↗</a>
+                            </div>
                         </div>
                     </article>
-                    <article class="card">
-                        <h3>Rizq Academy</h3>
-                        <p>Plateforme e-learning : cours, authentification, dashboard. Testée par 50 utilisateurs.</p>
-                        <div class="tags"><span>React</span><span>API REST</span></div>
-                        <div class="card-links">
-                            <a href="https://rizq-academy.vercel.app/" target="_blank" rel="noopener">🔗 Démo</a>
-                            <a href="https://github.com/modounianeCode/rizq-academy" target="_blank" rel="noopener">💻 Code</a>
+                    <article class="card project">
+                        <div class="project-cover cover-2" aria-hidden="true">RA</div>
+                        <div class="project-body">
+                            <h3>Rizq Academy</h3>
+                            <p>Plateforme e-learning : cours, authentification, dashboard. Testée par 50 utilisateurs.</p>
+                            <div class="tags"><span>React</span><span>API REST</span></div>
+                            <div class="card-links">
+                                <a href="https://rizq-academy.vercel.app/" target="_blank" rel="noopener">Démo live ↗</a>
+                                <a href="https://github.com/modounianeCode/rizq-academy" target="_blank" rel="noopener">Code source ↗</a>
+                            </div>
                         </div>
                     </article>
-                    <article class="card">
-                        <h3>SaaS Dashboard</h3>
-                        <p>Dashboard : auth, graphiques, CRUD.</p>
-                        <div class="tags"><span>React</span><span>Node.js</span></div>
-                        <div class="card-links">
-                            <a href="https://saas-phi-hazel-60.vercel.app/dashboard" target="_blank" rel="noopener">🔗 Démo</a>
-                            <a href="https://github.com/modounianeCode/saas" target="_blank" rel="noopener">💻 Code</a>
+                    <article class="card project">
+                        <div class="project-cover cover-3" aria-hidden="true">SD</div>
+                        <div class="project-body">
+                            <h3>SaaS Dashboard</h3>
+                            <p>Dashboard applicatif : authentification, graphiques, opérations CRUD.</p>
+                            <div class="tags"><span>React</span><span>Node.js</span></div>
+                            <div class="card-links">
+                                <a href="https://saas-phi-hazel-60.vercel.app/dashboard" target="_blank" rel="noopener">Démo live ↗</a>
+                                <a href="https://github.com/modounianeCode/saas" target="_blank" rel="noopener">Code source ↗</a>
+                            </div>
                         </div>
                     </article>
-                    <article class="card">
-                        <h3>Restaurant La Solution</h3>
-                        <p>Site vitrine : menu, réservation, 100% responsive.</p>
-                        <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Vercel</span></div>
-                        <div class="card-links">
-                            <a href="https://restaurantlasolution.vercel.app/" target="_blank" rel="noopener">🔗 Démo</a>
-                            <a href="https://github.com/modounianeCode/restaurant_la_solution" target="_blank" rel="noopener">💻 Code</a>
+                    <article class="card project">
+                        <div class="project-cover cover-4" aria-hidden="true">RS</div>
+                        <div class="project-body">
+                            <h3>Restaurant La Solution</h3>
+                            <p>Site vitrine : menu, réservation, 100&nbsp;% responsive.</p>
+                            <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Vercel</span></div>
+                            <div class="card-links">
+                                <a href="https://restaurantlasolution.vercel.app/" target="_blank" rel="noopener">Démo live ↗</a>
+                                <a href="https://github.com/modounianeCode/restaurant_la_solution" target="_blank" rel="noopener">Code source ↗</a>
+                            </div>
                         </div>
                     </article>
                 </div>
@@ -131,27 +177,39 @@
         </section>
 
         <!-- COMPETENCES -->
-        <section id="competences" class="section">
+        <section id="competences" class="section section-alt">
             <div class="container">
-                <p class="kicker">Compétences</p>
-                <h2>Stack directe, opérationnelle.</h2>
-                <div class="grid-skills">
-                    <div class="card"><h3>Langages</h3><p>JavaScript, HTML5, CSS3, SQL, Java, Python</p></div>
-                    <div class="card"><h3>Frontend</h3><p>React, Responsive Design, Intégration API REST, SEO de base</p></div>
-                    <div class="card"><h3>Backend / BDD</h3><p>Node.js, Express.js, MySQL, MongoDB</p></div>
-                    <div class="card"><h3>Outils</h3><p>Git / GitHub, Vercel, Linux</p></div>
+                <p class="kicker">04 — Compétences</p>
+                <h2>Une stack resserrée et opérationnelle.</h2>
+                <div class="skills-grid">
+                    <div class="skill-bars">
+                        <div class="skill"><div class="skill-top"><span>HTML5 / CSS3</span><span>90&nbsp;%</span></div><div class="bar"><i style="--w:90%"></i></div></div>
+                        <div class="skill"><div class="skill-top"><span>JavaScript</span><span>85&nbsp;%</span></div><div class="bar"><i style="--w:85%"></i></div></div>
+                        <div class="skill"><div class="skill-top"><span>React / API REST</span><span>80&nbsp;%</span></div><div class="bar"><i style="--w:80%"></i></div></div>
+                        <div class="skill"><div class="skill-top"><span>Git / GitHub / Vercel</span><span>85&nbsp;%</span></div><div class="bar"><i style="--w:85%"></i></div></div>
+                        <div class="skill"><div class="skill-top"><span>Node.js / SQL</span><span>65&nbsp;%</span></div><div class="bar"><i style="--w:65%"></i></div></div>
+                    </div>
+                    <div>
+                        <div class="card">
+                            <h3>Outils & méthodes</h3>
+                            <div class="tags"><span>Git</span><span>GitHub</span><span>Vercel</span><span>Linux</span><span>Responsive Design</span><span>SEO de base</span></div>
+                        </div>
+                        <div class="card lang-card">
+                            <h3>Langues</h3>
+                            <p>Français — courant · Anglais — B1</p>
+                        </div>
+                    </div>
                 </div>
-                <p class="lang">🌍 Langues : Français courant • Anglais B1</p>
             </div>
         </section>
 
         <!-- PARCOURS -->
-        <section id="parcours" class="section section-alt">
-            <div class="container">
-                <p class="kicker">Parcours</p>
-                <h2>Expérience + Formation.</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
+        <section id="parcours" class="section">
+            <div class="container narrow">
+                <p class="kicker">05 — Parcours</p>
+                <h2>Expérience et formation.</h2>
+                <ol class="timeline">
+                    <li class="timeline-item">
                         <span class="date">Jan 2024 — présent</span>
                         <h3>Développeur Frontend Freelance — Indépendant</h3>
                         <ul>
@@ -159,52 +217,54 @@
                             <li>3 projets déployés sur Vercel, SEO de base, optimisation images.</li>
                             <li>Cycle complet besoin → livraison pour 5 clients.</li>
                         </ul>
-                    </div>
-                    <div class="timeline-item">
+                    </li>
+                    <li class="timeline-item">
                         <span class="date">Juin 2023 — Déc 2023</span>
-                        <h3>Stagiaire Dev Web — Projet Rizq Academy</h3>
+                        <h3>Stagiaire Développement Web — Rizq Academy</h3>
                         <ul>
                             <li>10+ pages + API REST, plateforme testée par 50 utilisateurs.</li>
-                            <li>20+ bugs UI corrigés, cas de test, -40% retours visuels.</li>
+                            <li>20+ bugs UI corrigés, cas de test, −40&nbsp;% de retours visuels.</li>
                         </ul>
-                    </div>
-                    <div class="timeline-item">
+                    </li>
+                    <li class="timeline-item">
                         <span class="date">2023 — 2026 (en cours)</span>
                         <h3>Licence Informatique — Univ. Iba Der Thiam de Thiès</h3>
-                    </div>
-                    <div class="timeline-item">
+                    </li>
+                    <li class="timeline-item">
                         <span class="date">2022</span>
-                        <h3>Baccalauréat — Lycée Franco Arabe de Kaolack</h3>
-                    </div>
-                </div>
+                        <h3>Baccalauréat — Lycée Franco-Arabe de Kaolack</h3>
+                    </li>
+                </ol>
             </div>
         </section>
 
         <!-- CV -->
-        <section id="cv" class="section cv-section">
+        <section id="cv" class="section">
             <div class="container">
-                <p class="kicker">CV téléchargeable</p>
-                <h2>Téléchargez mon CV en 1 clic.</h2>
-                <p class="muted">Deux versions à jour (9 oct. 2026). Voir en ligne, imprimer / export PDF, ou télécharger le fichier.</p>
-                <div class="grid-cv">
-                    <article class="card cv-card">
-                        <h3>🇫🇷 CV Français</h3>
-                        <p>Développeur Frontend Junior — format A4, prêt à imprimer.</p>
-                        <div class="cv-actions">
-                            <a href="cv-fr.html" class="btn btn-primary">👁 Voir</a>
-                            <a href="cv-fr.html" download="CV-Modou-Niane-FR.html" class="btn btn-ghost">⬇ Télécharger</a>
-                        </div>
-                        <p class="hint">Astuce : sur la page CV, bouton « Imprimer / Export PDF » pour obtenir un PDF.</p>
-                    </article>
-                    <article class="card cv-card">
-                        <h3>🇬🇧 English Resume</h3>
-                        <p>Junior Frontend Developer — A4 print-ready.</p>
-                        <div class="cv-actions">
-                            <a href="cv-en.html" class="btn btn-primary">👁 View</a>
-                            <a href="cv-en.html" download="Resume-Modou-Niane-EN.html" class="btn btn-ghost">⬇ Download</a>
-                        </div>
-                        <p class="hint">Tip: on the resume page, use « Print / Export PDF » to get a PDF.</p>
-                    </article>
+                <div class="cv-panel">
+                    <div>
+                        <p class="kicker kicker-light">06 — Curriculum vitæ</p>
+                        <h2>Mon CV, prêt à télécharger.</h2>
+                        <p class="cv-sub">Deux versions à jour, format A4, prêtes à imprimer ou à joindre à une candidature.</p>
+                    </div>
+                    <div class="grid-cv">
+                        <article class="cv-card">
+                            <h3>CV — Français</h3>
+                            <p>Développeur Frontend · FR</p>
+                            <div class="cv-actions">
+                                <a href="cv-fr.html" class="btn btn-gold btn-sm">Voir</a>
+                                <a href="cv-fr.html" download="CV-Modou-Niane-FR.html" class="btn btn-outline-light btn-sm">Télécharger</a>
+                            </div>
+                        </article>
+                        <article class="cv-card">
+                            <h3>Resume — English</h3>
+                            <p>Frontend Developer · EN</p>
+                            <div class="cv-actions">
+                                <a href="cv-en.html" class="btn btn-gold btn-sm">View</a>
+                                <a href="cv-en.html" download="Resume-Modou-Niane-EN.html" class="btn btn-outline-light btn-sm">Download</a>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>
@@ -213,22 +273,19 @@
         <section id="contact" class="section section-alt">
             <div class="container contact-grid">
                 <div>
-                    <p class="kicker">Contact</p>
-                    <h2>Un stage, un poste junior, un projet ? Parlons-en.</h2>
-                    <p class="muted">Réponse rapide par email ou téléphone. Basé à Thiès, disponible remote. Le formulaire envoie direct via Formspree (50 envois/mois gratuits).</p>
-                    <div class="contact-links">
-                        <a href="mailto:modounianemodou@gmail.com" class="btn btn-primary">✉ modounianemodou@gmail.com</a>
-                        <button class="btn btn-ghost" id="copyEmail" type="button">📋 Copier l'email</button>
-                    </div>
-                    <div class="card contact-infos">
-                        <p><strong>Téléphone :</strong> <a href="tel:+221762388313">+221 76 238 83 13</a></p>
-                        <p><strong>GitHub :</strong> <a href="https://github.com/modounianeCode" target="_blank" rel="noopener">modounianeCode</a></p>
-                        <p><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/modou-niane" target="_blank" rel="noopener">modou-niane</a></p>
-                        <p><strong>Localisation :</strong> Thiès / Remote</p>
-                    </div>
+                    <p class="kicker">07 — Contact</p>
+                    <h2>Discutons de votre projet.</h2>
+                    <p class="muted">Stage, poste junior ou mission freelance : réponse sous 24&nbsp;h ouvrées. Basé à Thiès, disponible à distance.</p>
+                    <ul class="contact-list">
+                        <li><strong>Email</strong> <a href="mailto:modounianemodou@gmail.com">modounianemodou@gmail.com</a></li>
+                        <li><strong>Téléphone</strong> <a href="tel:+221762388313">+221 76 238 83 13</a></li>
+                        <li><strong>GitHub</strong> <a href="https://github.com/modounianeCode" target="_blank" rel="noopener">modounianeCode ↗</a></li>
+                        <li><strong>LinkedIn</strong> <a href="https://www.linkedin.com/in/modou-niane" target="_blank" rel="noopener">modou-niane ↗</a></li>
+                    </ul>
+                    <button class="btn btn-outline btn-sm" id="copyEmail" type="button">Copier l'email</button>
                 </div>
                 <form id="contactForm" class="card form-card" novalidate>
-                    <h3>📩 M'écrire directement</h3>
+                    <h3>Envoyer un message</h3>
                     <div class="form-row">
                         <div class="field">
                             <label for="fName">Nom *</label>
@@ -254,7 +311,7 @@
                     </div>
                     <input type="text" name="company" id="fCompany" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <button type="submit" class="btn btn-primary btn-block">Envoyer le message</button>
-                    <p class="hint" id="formStatus" role="status" aria-live="polite">Envoi direct via Formspree. Secours auto vers votre messagerie si hors-ligne.</p>
+                    <p class="hint" id="formStatus" role="status" aria-live="polite">Envoi direct sécurisé. Vos données ne servent qu'à vous répondre.</p>
                 </form>
             </div>
         </section>
@@ -262,8 +319,8 @@
 
     <footer class="footer">
         <div class="container footer-inner">
-            <p>© <span id="year">2026</span> Modou Niane — Portfolio. CV : <a href="cv-fr.html">FR</a> • <a href="cv-en.html">EN</a></p>
-            <a href="#accueil" class="to-top">↑ Haut</a>
+            <p>© <span id="year">2026</span> Modou Niane — Tous droits réservés.</p>
+            <p class="footer-links"><a href="cv-fr.html">CV FR</a> · <a href="cv-en.html">CV EN</a> · <a href="#accueil">Haut ↑</a></p>
         </div>
     </footer>
 
