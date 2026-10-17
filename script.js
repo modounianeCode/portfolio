@@ -1,4 +1,4 @@
-// Menu mobile + liens actifs + reveal + copier email + année + Formspree
+// Menu mobile + thème + accordéon projets + reveal + copier email + année + Formspree
 (function () {
   // 📌 Collez votre ID Formspree ici après création du formulaire (ex: "xyzabcde")
   // Étapes : https://formspree.io/register → New Form → copier l'ID → mettre ci-dessous
@@ -6,26 +6,53 @@
   const FORMSPREE_ENDPOINT = FORMSPREE_ID && FORMSPREE_ID !== "YOUR_FORM_ID"
     ? "https://formspree.io/f/" + FORMSPREE_ID
     : "";
+
+  // ---------- Menu mobile ----------
   const burger = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
 
   if (burger && navLinks) {
+    const closeMenu = () => {
+      navLinks.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Ouvrir le menu');
+    };
     burger.addEventListener('click', () => {
       const open = navLinks.classList.toggle('open');
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
     });
     navLinks.querySelectorAll('a').forEach((a) => {
-      a.addEventListener('click', () => navLinks.classList.remove('open'));
+      a.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) closeMenu();
     });
   }
 
-  // Lien actif au scroll
+  // ---------- Thème clair / sombre ----------
+  const themeToggle = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark');
+  }
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+  }
+
+  // ---------- Lien actif au scroll ----------
   const sections = document.querySelectorAll('section[id]');
   const links = document.querySelectorAll('.nav-links a');
   const onScroll = () => {
     let current = '';
     sections.forEach((s) => {
-      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      if (window.scrollY >= s.offsetTop - 140) current = s.id;
     });
     links.forEach((l) => {
       l.classList.toggle('active', l.getAttribute('href') === '#' + current);
@@ -34,7 +61,26 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Reveal
+  // ---------- Accordéon projets ----------
+  const projectItems = document.querySelectorAll('.project-item');
+  projectItems.forEach((item) => {
+    const header = item.querySelector('.project-header');
+    header.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      // Fermer tous les autres
+      projectItems.forEach((other) => {
+        other.classList.remove('active');
+        other.querySelector('.project-header').setAttribute('aria-expanded', 'false');
+      });
+      // Ouvrir / fermer celui-ci
+      if (!isActive) {
+        item.classList.add('active');
+        header.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // ---------- Reveal au scroll ----------
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) {
@@ -43,12 +89,12 @@
       }
     });
   }, { threshold: 0.12 });
-  document.querySelectorAll('.card, .timeline-item').forEach((el) => {
+  document.querySelectorAll('.project-item, .contact-list li, .contact-form').forEach((el) => {
     el.classList.add('reveal');
     io.observe(el);
   });
 
-  // Compteurs animés (stats hero)
+  // ---------- Compteurs animés ----------
   const counters = document.querySelectorAll('.counter');
   if (counters.length) {
     const cio = new IntersectionObserver((entries) => {
@@ -70,7 +116,7 @@
     counters.forEach((c) => cio.observe(c));
   }
 
-  // Copier email
+  // ---------- Copier email ----------
   const copyBtn = document.getElementById('copyEmail');
   if (copyBtn) {
     copyBtn.addEventListener('click', async () => {
@@ -81,11 +127,11 @@
       } catch {
         copyBtn.textContent = '✉ ' + email;
       }
-      setTimeout(() => { copyBtn.textContent = 'Copier l\'email'; }, 2000);
+      setTimeout(() => { copyBtn.textContent = "Copier l'email"; }, 2000);
     });
   }
 
-  // Formulaire contact -> Formspree (si configuré) sinon mailto de secours
+  // ---------- Formulaire contact -> Formspree ----------
   const form = document.getElementById('contactForm');
   if (form) {
     const status = document.getElementById('formStatus');
@@ -101,7 +147,7 @@
       const subject = document.getElementById('fSubject').value;
       const message = document.getElementById('fMessage').value.trim();
       const honey = document.getElementById('fCompany').value;
-      if (honey) return; // anti-spam
+      if (honey) return;
       if (!name || !email || !message) {
         setStatus('⚠️ Nom, email et message sont requis.', 'err');
         return;
@@ -110,13 +156,12 @@
         setStatus('⚠️ Email invalide.', 'err');
         return;
       }
-      // Mode secours : Formspree non configuré → ouvre la messagerie
       if (!FORMSPREE_ENDPOINT) {
         const to = 'modounianemodou@gmail.com';
         const mailSubject = encodeURIComponent('[Portfolio] ' + subject + ' — ' + name);
         const mailBody = encodeURIComponent('Nom: ' + name + '\nEmail: ' + email + '\n\n' + message);
         window.location.href = 'mailto:' + to + '?subject=' + mailSubject + '&body=' + mailBody;
-        setStatus('⚠️ Formspree non configuré : messagerie ouverte en secours. Ajoutez votre ID dans script.js.', 'err');
+        setStatus('⚠️ Formspree non configuré : messagerie ouverte en secours.', 'err');
         return;
       }
       submitBtn.disabled = true;
@@ -142,7 +187,7 @@
     });
   }
 
-  // Année auto
+  // ---------- Année auto ----------
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 })();
