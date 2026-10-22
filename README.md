@@ -1,6 +1,6 @@
 # Portfolio — Modou Niane
 
-Portfolio Développeur Frontend Junior (Thiès / Remote).
+Portfolio Développeur Frontend Junior 
 
 ## 📌 Pages
 - `index.html` → portfolio (accueil, projets, compétences, parcours, contact)
